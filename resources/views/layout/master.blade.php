@@ -7,7 +7,7 @@
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>ERP UD. Sejati - @yield('title')</title>
+    <title>Ijen Crater Tour Indonesia - @yield('title')</title>
 
     <meta name="description" content="Sistem Informasi ERP UD. Sejati" />
     <meta name="keywords" content="dashboard, bootstrap 5, ERP, UD. Sejati">
@@ -27,8 +27,8 @@
 
     <!-- Core CSS -->
     <link rel="stylesheet" href="{{ url('assets/vendor/css/rtl/core.css') }}" class="template-customizer-core-css" />
-    <link rel="stylesheet"
-        href="{{ url('assets/vendor/css/rtl/theme-default.css') }}" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="{{ url('assets/vendor/css/rtl/theme-default.css') }}"
+        class="template-customizer-theme-css" />
     <link rel="stylesheet" href="{{ url('assets/css/demo.css') }}" />
 
     <!-- Vendors CSS -->
@@ -66,9 +66,10 @@
                 <div class="app-brand demo">
                     <a href="{{ route('index') }}" class="app-brand-link">
                         <span class="app-brand-logo demo">
-                           <img src="{{url('assets/img/favicon/icon.png')}}" alt="Logo" width="32" height="32">
+                            <img src="{{ url('assets/img/favicon/icon.png') }}" alt="Logo" width="32"
+                                height="32">
                         </span>
-                        <span class="app-brand-text demo menu-text fw-bold">UD. Sejati</span>
+                        <span class="app-brand-text demo menu-text fw-bold">Admin</span>
                     </a>
 
                     <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
@@ -84,16 +85,17 @@
                     <li class="menu-header small text-uppercase">
                         <span class="menu-header-text" data-i18n="Dashboards">Dashboards</span>
                     </li>
-                    <li class="menu-item {{ (empty(request()->segment(1)) || request()->segment(1) == 'index')?'active':'' }}">
+                    <li
+                        class="menu-item {{ empty(request()->segment(1)) || request()->segment(1) == 'index' ? 'active' : '' }}">
                         <a href="{{ route('index') }}" class="menu-link">
                             <i class="menu-icon tf-icons ti ti-smart-home"></i>
                             <div class="text-truncate" data-i18n="Dashboard">Dashboard</div>
                         </a>
                     </li>
-                    <li class="menu-header small text-uppercase">
+                    {{-- <li class="menu-header small text-uppercase">
                         <span class="menu-header-text" data-i18n="Proses Produksi">Proses Produksi</span>
                     </li>
-                    <li class="menu-item {{ (request()->segment(2) == 'pemrosesan-bahan')?'active':'' }}">
+                    <li class="menu-item {{ request()->segment(2) == 'pemrosesan-bahan' ? 'active' : '' }}">
                         <a href="" class="menu-link">
                             <i class="menu-icon tf-icons ti ti-smart-home"></i>
                             <div class="text-truncate" data-i18n="Pemrosesan">Pemrosesan</div>
@@ -110,29 +112,35 @@
                             <i class="menu-icon tf-icons ti ti-smart-home"></i>
                             <div class="text-truncate" data-i18n="Hasil Produksi">Hasil Produksi</div>
                         </a>
-                    </li>
+                    </li> --}}
                     <li class="menu-header small text-uppercase">
-                        <span class="menu-header-text" data-i18n="Transaksi">Transaksi</span>
+                        <span class="menu-header-text" data-i18n="ProfileMatching">Profile Matching</span>
                     </li>
                     <li class="menu-item">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons ti ti-smart-home"></i>
-                            <div data-i18n="Transaksi">Transaksi</div>
+                            <div data-i18n="ProfileMatching">Profile Matching</div>
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item">
-                                <a href="" class="menu-link">
-                                    <div data-i18n="Penjualan">Penjualan</div>
+                                <a href="{{ route('kriteria.index') }}" class="menu-link">
+                                    <div data-i18n="Kriteria">Kriteria</div>
+                                </a>
+                            </li>
+
+                            <li class="menu-item">
+                                <a href="{{ route('subkriteria.index') }}" class="menu-link">
+                                    <div data-i18n="Subkriteria">Subkriteria</div>
                                 </a>
                             </li>
                             <li class="menu-item">
-                                <a href="" class="menu-link">
-                                    <div data-i18n="Pembelian">Pembelian</div>
+                                <a href="{{ route('penilaian.index') }}" class="menu-link">
+                                    <div data-i18n="Penilaian">Penilaian</div>
                                 </a>
                             </li>
-                            <li class="menu-item">
-                                <a href="" class="menu-link">
-                                    <div data-i18n="Marketing">Marketing</div>
+                              <li class="menu-item">
+                                <a href="{{ route('penilaian.all') }}" class="menu-link">
+                                    <div data-i18n="Penilaian All">Penilaian All</div>
                                 </a>
                             </li>
                         </ul>
@@ -140,36 +148,31 @@
                     <li class="menu-header small text-uppercase">
                         <span class="menu-header-text" data-i18n="Data Master">Data Master</span>
                     </li>
-   <li class="menu-item">
-    <a href="{{ route('bahan.index') }}" class="menu-link">
-        <i class="menu-icon tf-icons ti ti-smart-home"></i>
-        <div class="text-truncate" data-i18n="Master Bahan">Master Bahan</div>
-    </a>
-</li>
 
 
-                    <li class="menu-item {{ (request()->segment(2) == 'produk')?'active':'' }}">
-                        <a href="" class="menu-link">
+
+                    <li class="menu-item {{ request()->segment(2) == 'guide' ? 'active' : '' }}">
+                        <a href="{{ route('guide.index') }}" class="menu-link">
                             <i class="menu-icon tf-icons ti ti-smart-home"></i>
-                            <div class="text-truncate" data-i18n="Master Produk">Master Produk</div>
+                            <div class="text-truncate" data-i18n="Guide">Guide</div>
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="" class="menu-link">
+                        <a href="{{ route('pesanan.index') }}" class="menu-link">
                             <i class="menu-icon tf-icons ti ti-smart-home"></i>
-                            <div class="text-truncate" data-i18n="Supplier">Supplier</div>
+                            <div class="text-truncate" data-i18n="Pesanan">Pesanan</div>
                         </a>
                     </li>
-                    <li class="menu-item {{ (request()->segment(2) == 'pelanggan')?'active':'' }}">
-                        <a href="" class="menu-link">
+                    <li class="menu-item {{ request()->segment(2) == 'paket' ? 'active' : '' }}">
+                        <a href="{{ route('paket.index') }}" class="menu-link">
+                            <i class="menu-icon tf-icons ti ti-smart-home"></i>
+                            <div class="text-truncate" data-i18n="Paket">Paket</div>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="{{ route('dashboard.pelanggan') }}" class="menu-link">
                             <i class="menu-icon tf-icons ti ti-smart-home"></i>
                             <div class="text-truncate" data-i18n="Pelanggan">Pelanggan</div>
-                        </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="" class="menu-link">
-                            <i class="menu-icon tf-icons ti ti-smart-home"></i>
-                            <div class="text-truncate" data-i18n="Sales">Sales</div>
                         </a>
                     </li>
                     <li class="menu-header small text-uppercase">
@@ -201,10 +204,11 @@
                         <!-- Search -->
                         <div class="navbar-nav align-items-center">
                             <div class="nav-item navbar-search-wrapper mb-0">
-                            <a class="nav-item nav-link search-toggler px-0" href="javascript:void(0);">
-                                <i class="ti ti-search ti-md"></i>
-                                <span class="d-none d-md-inline-block text-muted fw-normal ms-4">Search (Ctrl+/)</span>
-                            </a>
+                                <a class="nav-item nav-link search-toggler px-0" href="javascript:void(0);">
+                                    <i class="ti ti-search ti-md"></i>
+                                    <span class="d-none d-md-inline-block text-muted fw-normal ms-4">Search
+                                        (Ctrl+/)</span>
+                                </a>
                             </div>
                         </div>
                         <!-- /Search -->
@@ -597,8 +601,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    <span class="fw-medium d-block">{{'User Admin'}}</span>
-                                                    <small class="text-muted">{{ucwords('admin')}}</small>
+                                                    <span class="fw-medium d-block">{{ 'User Admin' }}</span>
+                                                    <small class="text-muted">{{ ucwords('admin') }}</small>
                                                 </div>
                                             </div>
                                         </a>
@@ -653,7 +657,7 @@
                                     <script>
                                         document.write(new Date().getFullYear());
                                     </script>
-                                    UD Sejati. Powered By <a href="https://mascitra.com">Mascitra.com</a>
+                                    {{-- UD Sejati. Powered By <a href="https://mascitra.com">Mascitra.com</a> --}}
                                     {{-- <a href="https://github.com/you-ink" target="_blank"
                                         class="footer-link text-primary fw-medium">You-Ink</a> --}}
                                 </div>
@@ -682,7 +686,7 @@
     <!-- build:js assets/vendor/js/core.js -->
     <script>
         function get_api_url() {
-            return "<?php echo url('api/') ?>";
+            return "<?php echo url('api/'); ?>";
         }
     </script>
     <script src="{{ url('assets/js/jquery-3.6.1.min.js') }}"></script>
@@ -710,7 +714,7 @@
     <script src="<?= url('assets/js/jquery-cookie.min.js') ?>"></script>
     <script>
         function getAuthorization() {
-            return "Bearer "+cookie.get("erp-ud-sejati-token");
+            return "Bearer " + cookie.get("erp-ud-sejati-token");
         }
     </script>
     <script src="<?= url('assets/js/helper-api.js') ?>"></script>
