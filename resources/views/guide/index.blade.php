@@ -27,6 +27,7 @@
                                 <th>No</th>
                                 <th>Nama Guide</th>
                                 <th>Email</th>
+                                <th>Nomor HP</th>
                                 <th>Kriteria Unggulan</th>
                                 <th>Aksi</th>
                             </tr>
@@ -37,6 +38,7 @@
                                     <td class="text-center">{{ $index + 1 }}</td>
                                     <td>{{ $guide->nama_guide }}</td>
                                     <td>{{ $guide->email }}</td>
+                                      <td>{{ $guide->nomer_hp }}</td>
                                     <td class="text-center">
                                         @if ($guide->kriteria_unggulan_id)
                                             <span class="badge bg-success">{{ $guide->kriteria_unggulan_nama }}</span>

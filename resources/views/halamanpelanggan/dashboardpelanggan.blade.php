@@ -1,6 +1,10 @@
 @extends('layout.pelanggan')
+
+
+
+
 @section('content')
-<style>
+    <style>
 
 :root {
     --header-height: 4rem;

@@ -13,7 +13,7 @@ class Pesanan extends Model
         'tanggal_pesan', 'tanggal_keberangkatan', 'jumlah_peserta',
         'order_id', 'negara', 'bahasa', 'riwayat_medis',
         'paspor', 'special_request', 'status',
-        // 'user_id',
+        'user_id',
         'kebutuhan_guide',
     ];
 
@@ -57,16 +57,16 @@ public function detailPesanans()
 }
 
 
-// public function reviews()
-// {
-//     return $this->hasMany(Review::class, 'pesanan_id');
-// }
+public function reviews()
+{
+    return $this->hasMany(Review::class, 'pesanan_id');
+}
 
 // di Penilaian.php
-// public function pesanan()
-// {
-//     return $this->belongsTo(Pesanan::class, 'id_pesanan');
-// }
+public function pesanan()
+{
+    return $this->belongsTo(Pesanan::class, 'id_pesanan');
+}
 
 // di Pesanan.php (misal)
 public function penilaians()

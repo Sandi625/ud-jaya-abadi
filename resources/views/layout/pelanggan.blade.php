@@ -41,7 +41,7 @@
     </div>
     <div class="nav__toggle" id="nav-toggle">&#9776;</div>
     <ul class="nav__menu" id="nav-menu">
-        {{-- <li class="nav__item">
+        <li class="nav__item">
             <a href="{{ route('home') }}" class="nav__link active-link">Home</a>
         </li>
         <li class="nav__item">
@@ -49,19 +49,19 @@
         </li>
         <li class="nav__item">
             <a href="{{ route('home') }}#discover" class="nav__link">Destination</a>
-        </li> --}}
+        </li>
         <li class="nav__item">
             <a href="{{ route('dashboard.pelanggan') }}" class="nav__link">Tours</a>
         </li>
-        {{-- <li class="nav__item">
+        <li class="nav__item">
             <a href="{{ route('review.review') }}" class="nav__link">Review</a>
-        </li> --}}
-        {{-- <li class="nav__item">
+        </li>
+        <li class="nav__item">
             <a href="{{ route('galeri') }}" class="nav__link">Gallery</a>
-        </li> --}}
+        </li>
 
       {{-- Logout --}}
-{{-- @auth
+@auth
 <li class="nav__item logout-item">
     <form method="POST" action="{{ route('logout') }}">
         @csrf
@@ -70,7 +70,7 @@
         </button>
     </form>
 </li>
-@endauth --}}
+@endauth
 
 
         <div class="nav__close" id="nav-close">&times;</div>

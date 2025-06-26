@@ -83,7 +83,7 @@
             </div>
 
             <div class="mb-3">
-                <strong>Guide yang Ditugaskan:</strong> {{ $pesanan->guide->nama ?? '-' }}
+                <strong>Guide yang Ditugaskan:</strong> {{ $pesanan->guide->nama_guide ?? '-' }}
             </div>
 
             <div class="mb-3">

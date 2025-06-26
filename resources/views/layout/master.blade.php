@@ -64,7 +64,7 @@
 
             <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
                 <div class="app-brand demo">
-                    <a href="{{ route('index') }}" class="app-brand-link">
+                    <a href="{{ route('dashboard') }}" class="app-brand-link">
                         <span class="app-brand-logo demo">
                             <img src="{{ url('assets/img/favicon/icon.png') }}" alt="Logo" width="32"
                                 height="32">
@@ -86,8 +86,8 @@
                         <span class="menu-header-text" data-i18n="Dashboards">Dashboards</span>
                     </li>
                     <li
-                        class="menu-item {{ empty(request()->segment(1)) || request()->segment(1) == 'index' ? 'active' : '' }}">
-                        <a href="{{ route('index') }}" class="menu-link">
+                        class="menu-item {{ empty(request()->segment(1)) || request()->segment(1) == 'dashboard' ? 'active' : '' }}">
+                        <a href="{{ route('dashboard') }}" class="menu-link">
                             <i class="menu-icon tf-icons ti ti-smart-home"></i>
                             <div class="text-truncate" data-i18n="Dashboard">Dashboard</div>
                         </a>
@@ -138,7 +138,7 @@
                                     <div data-i18n="Penilaian">Penilaian</div>
                                 </a>
                             </li>
-                              <li class="menu-item">
+                            <li class="menu-item">
                                 <a href="{{ route('penilaian.all') }}" class="menu-link">
                                     <div data-i18n="Penilaian All">Penilaian All</div>
                                 </a>
@@ -169,21 +169,71 @@
                             <div class="text-truncate" data-i18n="Paket">Paket</div>
                         </a>
                     </li>
-                    <li class="menu-item">
+                    <li class="menu-item {{ request()->segment(2) == 'pilihguide' ? 'active' : '' }}">
+                        <a href="{{ route('pilihguide.index') }}" class="menu-link">
+                            <i class="menu-icon tf-icons ti ti-smart-home"></i>
+                            <div class="text-truncate" data-i18n="Pilih Guide">Pilih Guide</div>
+                        </a>
+                    </li>
+                    </li>
+                    <li class="menu-item {{ request()->segment(2) == 'notifguide' ? 'active' : '' }}">
+                        <a href="{{ route('notif.guide') }}" class="menu-link">
+                            <i class="menu-icon tf-icons ti ti-smart-home"></i>
+                            <div class="text-truncate" data-i18n="Notif Guide">Notif Guide</div>
+                        </a>
+                    </li>
+
+                    </li>
+                    </li>
+                    <li class="menu-item {{ request()->segment(2) == 'review' ? 'active' : '' }}">
+                        <a href="{{ route('review.all') }}" class="menu-link">
+                            <i class="menu-icon tf-icons ti ti-smart-home"></i>
+                            <div class="text-truncate" data-i18n="Review">Review</div>
+                        </a>
+                    </li>
+
+                    <li class="menu-item {{ request()->segment(2) == 'user' ? 'active' : '' }}">
+                        <a href="{{ route('users.index') }}" class="menu-link">
+                            <i class="menu-icon tf-icons ti ti-smart-home"></i>
+                            <div class="text-truncate" data-i18n="Manajemen User">Manajemen User</div>
+                        </a>
+                    </li>
+
+
+                      <li class="menu-item {{ request()->segment(2) == 'blog' ? 'active' : '' }}">
+                        <a href="{{ route('blogs.index') }}" class="menu-link">
+                            <i class="menu-icon tf-icons ti ti-smart-home"></i>
+                            <div class="text-truncate" data-i18n="Blog">Blog</div>
+                        </a>
+                    </li>
+
+                     <li class="menu-item {{ request()->segment(2) == 'galeri' ? 'active' : '' }}">
+                        <a href="{{ route('galeris.index') }}" class="menu-link">
+                            <i class="menu-icon tf-icons ti ti-smart-home"></i>
+                            <div class="text-truncate" data-i18n="Galeri">Galeri</div>
+                        </a>
+                    </li>
+
+
+
+
+
+
+                    {{-- <li class="menu-item">
                         <a href="{{ route('dashboard.pelanggan') }}" class="menu-link">
                             <i class="menu-icon tf-icons ti ti-smart-home"></i>
                             <div class="text-truncate" data-i18n="Pelanggan">Pelanggan</div>
                         </a>
-                    </li>
+                    </li> --}}
                     <li class="menu-header small text-uppercase">
                         <span class="menu-header-text" data-i18n="Laporan">Laporan</span>
                     </li>
-                    <li class="menu-item">
+                    {{-- <li class="menu-item">
                         <a href="" class="menu-link">
                             <i class="menu-icon tf-icons ti ti-smart-home"></i>
                             <div class="text-truncate" data-i18n="Laporan Penjualan">Laporan Penjualan</div>
                         </a>
-                    </li>
+                    </li> --}}
                 </ul>
             </aside>
             <!-- / Menu -->
@@ -620,11 +670,15 @@
                                         <div class="dropdown-divider"></div>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="">
-                                            <i class="ti ti-logout me-2 ti-sm"></i>
-                                            <span class="align-middle">Log Out</span>
-                                        </a>
+                                        <form method="POST" action="{{ route('logout') }}">
+                                            @csrf
+                                            <button type="submit" class="dropdown-item">
+                                                <i class="ti ti-logout me-2 ti-sm"></i>
+                                                <span class="align-middle">Log Out</span>
+                                            </button>
+                                        </form>
                                     </li>
+
                                 </ul>
                             </li>
                             <!--/ User -->

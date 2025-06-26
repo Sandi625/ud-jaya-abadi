@@ -29,12 +29,12 @@
                 </div>
             </form>
 
-            <div class="d-flex justify-content-between align-items-center mb-3">
+            {{-- <div class="d-flex justify-content-between align-items-center mb-3">
     <h3 class="mb-0 text-dark">Daftar Pesanan</h3>
     <a href="{{ route('pesanan.create') }}" class="btn btn-success">
         <i class="fa fa-plus me-1"></i> Tambah Pesanan
     </a>
-</div>
+</div> --}}
 
 
             {{-- Tabel --}}
@@ -63,7 +63,14 @@
                                 <td>{{ $pesanan->email }}</td>
                                 <td>{{ $pesanan->nomor_telp }}</td>
                                 <td>{{ $pesanan->paket->nama_paket ?? '-'}}</td>
-                                <td>{{ $pesanan->guide->nama ?? '-' }}</td>
+                              <td class="text-center">
+    @if($pesanan->id_guide)
+        {{ $pesanan->guide->nama_guide }}
+    @else
+        <span class="text-muted">Belum ditentukan</span>
+    @endif
+</td>
+
                                 <td class="text-center">{{ \Carbon\Carbon::parse($pesanan->tanggal_keberangkatan)->format('d-m-Y') }}</td>
                                 <td class="text-center">{{ $pesanan->jumlah_peserta }}</td>
                                 <td class="text-center">

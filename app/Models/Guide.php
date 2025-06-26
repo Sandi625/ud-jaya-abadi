@@ -55,10 +55,10 @@ class Guide extends Model
 
 
   // app/Models/Guide.php
-// public function pesanans()
-// {
-//     return $this->hasMany(Pesanan::class, 'id_guide');
-// }
+public function pesanans()
+{
+    return $this->hasMany(Pesanan::class, 'id_guide');
+}
 
 
 
@@ -75,10 +75,10 @@ public function kriteriaUnggulan()
 //     }
 
 // app/Models/Guide.php
-// public function notifikasis()
-// {
-//     return $this->hasMany(Notifikasi::class, 'guide_id');
-// }
+public function notifikasis()
+{
+    return $this->hasMany(Notifikasi::class, 'guide_id');
+}
 
 
 
